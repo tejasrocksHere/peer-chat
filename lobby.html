@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PeerChat</title>
+    <link rel="stylesheet" href="lobby.css">
+    <style>
+        body {
+            background-color: #f7f7f7;
+            font-family: Arial, sans-serif;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .form {
+            background-color: #8a63d2;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .form input[type="text"] {
+            width: 250px;
+            padding: 10px;
+            margin-right: 10px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        .form input[type="submit"] {
+            background-color: #6d43a6;
+            color: #fff;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        .form input[type="submit"]:hover {
+            background-color: #50337f;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <form class="form" id="join-form">
+            <input type="text" name="invite_link" required>
+            <input type="submit" value="Join Room" required>
+        </form>
+    </div>
+
+    <script>
+        let form = document.getElementById('join-form');
+        form.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let inviteCode = e.target.elements.invite_link.value;
+            window.location.href = `index.html?room=${inviteCode}`;
+        });
+    </script>
+</body>
+</html>
